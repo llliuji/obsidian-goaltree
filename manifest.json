@@ -1,0 +1,9 @@
+{
+  "id": "goaltree-tasks",
+  "name": "目标树",
+  "version": "1.1.0",
+  "minAppVersion": "1.0.0",
+  "description": "目标细化与进度追踪面板",
+  "author": "GoalTree",
+  "isDesktopOnly": false
+}

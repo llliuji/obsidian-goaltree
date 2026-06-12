@@ -1,0 +1,998 @@
+/* GoalTree - Obsidian Plugin Styles */
+
+/* Panel container */
+.goaltree-panel {
+  padding: 0 !important;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  overflow: hidden;
+  /* Safe area for Android notch/gesture bar */
+  padding-top: env(safe-area-inset-top, 0);
+  padding-bottom: env(safe-area-inset-bottom, 0);
+  -webkit-tap-highlight-color: transparent;
+}
+.goaltree-panel * {
+  -webkit-tap-highlight-color: transparent;
+}
+
+/* Header */
+.goaltree-header {
+  padding: 14px 16px 6px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-shrink: 0;
+}
+.goaltree-header-left {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+.goaltree-title-group {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+.goaltree-title-icon {
+  color: var(--interactive-accent, #7c6fda);
+  flex-shrink: 0;
+  opacity: 0.8;
+}
+.goaltree-header h3 {
+  font-size: 14px;
+  font-weight: 700;
+  margin: 0;
+  color: var(--text-normal);
+  letter-spacing: 0.3px;
+}
+.goaltree-header-date {
+  font-size: 10px;
+  color: var(--text-faint);
+  padding: 1px 6px;
+  background: var(--background-modifier-hover);
+  border-radius: 10px;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+.goaltree-header-add-btn {
+  display: flex;
+  align-items: center;
+  gap: 3px;
+  padding: 3px 8px;
+  border-radius: 6px;
+  color: var(--text-muted);
+  cursor: pointer;
+  font-size: 11px;
+  transition: color 0.15s ease, background 0.15s ease;
+  white-space: nowrap;
+}
+.goaltree-header-add-btn:hover {
+  color: var(--interactive-accent);
+  background: var(--background-modifier-hover);
+}
+.goaltree-header-right {
+  display: flex;
+  gap: 4px;
+  flex-shrink: 0;
+}
+
+/* Icon button */
+.goaltree-icon-btn {
+  width: 28px;
+  height: 28px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 4px;
+  color: var(--text-muted);
+  cursor: pointer;
+}
+.goaltree-icon-btn:hover {
+  background: var(--background-modifier-hover);
+  color: var(--text-normal);
+}
+
+/* Stats card — soft card background for the dashboard area */
+.goaltree-stats-card {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 8px 12px;
+  margin: 4px 12px 6px;
+  background: var(--background-secondary);
+  border: 1px solid var(--background-modifier-border);
+  border-radius: 8px;
+  flex-shrink: 0;
+}
+
+/* Stats text block — 3 lines left of bar chart */
+.goaltree-stats-text-wrap {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 2px;
+  flex-shrink: 0;
+}
+.goaltree-stats-line {
+  font-size: 11px;
+  color: var(--text-muted);
+  font-variant-numeric: tabular-nums;
+  white-space: nowrap;
+  line-height: 1.5;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+.goaltree-stats-clickable {
+  cursor: pointer;
+  padding: 3px 6px;
+  margin: -3px -6px;
+  border-radius: 4px;
+  transition: background 0.12s;
+}
+.goaltree-stats-clickable:hover {
+  background: var(--background-modifier-hover);
+}
+
+/* Colored dot indicators */
+.goaltree-stats-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+.goaltree-dot-green {
+  background: #98c379;
+  box-shadow: 0 0 4px rgba(152, 195, 121, 0.4);
+}
+.goaltree-dot-amber {
+  background: #e5c07b;
+  box-shadow: 0 0 4px rgba(229, 192, 123, 0.4);
+}
+.goaltree-dot-blue {
+  background: #61afef;
+  box-shadow: 0 0 4px rgba(97, 175, 239, 0.4);
+}
+
+.goaltree-stats-label {
+  flex-shrink: 0;
+  width: 48px;
+  text-align: justify;
+  text-align-last: justify;
+  -moz-text-align-last: justify;
+}
+.goaltree-stats-num {
+  display: flex;
+  align-items: baseline;
+  gap: 2px;
+}
+.goaltree-stats-num strong {
+  color: var(--text-normal);
+  font-weight: 700;
+  font-size: 13px;
+}
+.goaltree-stats-unit {
+  font-size: 10px;
+  color: var(--text-faint);
+}
+
+/* Expand/collapse icon button group */
+.goaltree-expand-btns {
+  display: flex;
+  gap: 2px;
+  margin-left: auto;
+  flex-shrink: 0;
+}
+.goaltree-expand-icon-btn {
+  width: 24px;
+  height: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 4px;
+  color: var(--text-faint);
+  cursor: pointer;
+  transition: color 0.15s ease, background 0.15s ease;
+}
+.goaltree-expand-icon-btn:hover {
+  color: var(--text-muted);
+  background: var(--background-modifier-hover);
+}
+
+/* 7-day weekly bar chart */
+.goaltree-weekly-chart {
+  display: flex;
+  align-items: flex-end;
+  gap: 3px;
+  height: 40px;
+  flex-shrink: 0;
+  padding: 0 4px;
+}
+.goaltree-weekly-bar-col {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 3px;
+  width: 14px;
+}
+.goaltree-weekly-bar {
+  width: 8px;
+  height: 2px;
+  border-radius: 4px;
+  background: var(--background-modifier-border);
+  transition: height 0.3s ease;
+}
+.goaltree-weekly-bar.active {
+  background: #61afef;
+  opacity: 0.7;
+}
+.goaltree-weekly-bar.is-today {
+  background: var(--interactive-accent, #7c6fda);
+  opacity: 1;
+  box-shadow: 0 0 6px rgba(124, 111, 218, 0.3);
+}
+.goaltree-weekly-label {
+  font-size: 8px;
+  color: var(--text-faint);
+  line-height: 1;
+}
+.goaltree-weekly-bar-col.today .goaltree-weekly-label {
+  color: var(--interactive-accent, #7c6fda);
+  font-weight: 600;
+}
+
+/* Divider */
+.goaltree-divider {
+  height: 1px;
+  background: transparent;
+  margin: 0 16px 0;
+}
+
+/* Section divider between active and completed */
+.goaltree-section-divider {
+  height: 1px;
+  background: var(--background-modifier-border, rgba(0,0,0,0.1));
+  margin: 4px 16px 0;
+}
+
+/* Completed goals section */
+.goaltree-completed-section {
+  padding: 0;
+}
+.goaltree-completed-header {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 10px 16px;
+  cursor: pointer;
+  user-select: none;
+  color: var(--text-muted);
+  font-size: 13px;
+  transition: color 0.15s;
+}
+.goaltree-completed-header:hover {
+  color: var(--text-normal);
+}
+.goaltree-completed-toggle {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 18px;
+  height: 18px;
+  flex-shrink: 0;
+  transition: transform 0.15s;
+}
+.goaltree-completed-title {
+  font-weight: 500;
+}
+.goaltree-completed-body {
+  overflow: hidden;
+}
+.goaltree-completed-list {
+  padding: 0 10px 20px 12px;
+}
+.goaltree-completed-list .goaltree-task-item {
+  opacity: 0.7;
+}
+
+/* Task list — horizontal padding here so all nesting levels share the same right edge */
+.goaltree-task-list {
+  flex: 1;
+  overflow-y: auto;
+  padding: 8px 10px 40px 12px;
+  -webkit-overflow-scrolling: touch;
+}
+.goaltree-task-list::-webkit-scrollbar {
+  width: 5px;
+}
+.goaltree-task-list::-webkit-scrollbar-thumb {
+  background: var(--scrollbar-thumb-bg);
+  border-radius: 3px;
+}
+
+/* Task item — horizontal padding only on left;
+   right-bar is absolute-positioned so right edge always aligns */
+.goaltree-task-item {
+  padding: 3px 8px 3px 0;
+  cursor: default;
+  border-left: none;
+  transition: background 0.15s ease;
+  overflow: visible;       /* allow ::before tree line to extend beyond bounds */
+}
+
+/* In-progress leaf items: green text (no background) */
+.goaltree-task-item.goaltree-in-progress-leaf .goaltree-task-name {
+  color: #4caf50;
+  font-weight: 600;
+}
+
+/* Deferred items: grayed out until due date arrives */
+.goaltree-task-item.goaltree-deferred {
+  opacity: 0.35;
+}
+.goaltree-task-item.goaltree-deferred:hover {
+  opacity: 0.55;
+}
+.goaltree-task-item.goaltree-deferred .goaltree-task-name {
+  color: var(--text-faint);
+}
+
+/* Due date tag */
+.goaltree-due-date {
+  font-size: 10px;
+  padding: 1px 5px;
+  border-radius: 3px;
+  flex-shrink: 0;
+  font-variant-numeric: tabular-nums;
+  font-weight: 500;
+}
+.goaltree-due-date.deferred {
+  background: var(--background-modifier-hover);
+  color: var(--text-faint);
+}
+.goaltree-due-date.active {
+  background: rgba(97, 175, 239, 0.15);
+  color: #61afef;
+}
+
+/* Task header row — relative for absolute right-bar positioning */
+.goaltree-task-header {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  min-height: 26px;
+}
+
+/* Toggle wrap — always 18px so all rows align */
+.goaltree-toggle-wrap {
+  width: 18px;
+  height: 18px;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Toggle arrow */
+.goaltree-toggle {
+  width: 18px;
+  height: 18px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--text-faint);
+  border-radius: 3px;
+  cursor: pointer;
+  transition: color 0.15s ease;
+}
+.goaltree-toggle:hover {
+  color: var(--text-muted);
+  background: var(--background-modifier-hover);
+}
+.goaltree-toggle svg {
+  transition: transform 0.2s ease;
+}
+.goaltree-toggle.expanded svg {
+  transform: rotate(90deg);
+}
+
+/* Task index number */
+.goaltree-task-index {
+  color: var(--text-faint);
+  font-size: inherit;
+  font-weight: 400;
+  margin-right: 2px;
+  font-variant-numeric: tabular-nums;
+}
+
+/* Due date overdue/today: red text (no background) */
+.goaltree-task-item.goaltree-due-overdue .goaltree-task-name,
+.goaltree-task-item.goaltree-due-today .goaltree-task-name {
+  color: #e53935;
+  font-weight: 600;
+}
+
+/* Name */
+.goaltree-task-name {
+  font-size: 13px;
+  color: var(--text-normal);
+  line-height: 1.5;
+  cursor: default;
+  white-space: normal;
+  overflow-wrap: break-word;
+  word-break: normal;
+}
+.goaltree-task-name.done {
+  text-decoration: none;
+  color: var(--text-faint);
+  opacity: 0.6;
+}
+.goaltree-task-name.cancelled {
+  text-decoration: line-through;
+  color: var(--text-faint);
+  opacity: 0.5;
+}
+.goaltree-task-name.root-name {
+  font-weight: 600;
+  font-size: 14px;
+}
+
+/* Phase name — bold + unique color per phase */
+.goaltree-task-name.phase-name {
+  font-weight: 700;
+  font-size: 13px;
+}
+/* Phase name: medium size, no color */
+.goaltree-task-name.phase-name {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--text-normal);
+}
+/* Done phases just fade, no strikethrough */
+.goaltree-task-name.done.phase-name {
+  color: var(--text-faint);
+  opacity: 0.6;
+}
+/* Cancelled phases: strikethrough + fade */
+.goaltree-task-name.cancelled.phase-name {
+  color: var(--text-faint);
+  opacity: 0.5;
+  text-decoration: line-through;
+}
+
+/* Goal rows — rainbow color background (like screenshot) */
+.goaltree-task-item.goaltree-goal-rainbow > .goaltree-task-header {
+  background: var(--rainbow-color, #7986cb);
+  border-radius: 4px;
+}
+.goaltree-task-item.goaltree-goal-rainbow > .goaltree-task-header .goaltree-task-name {
+  color: #1a1a1a;
+  font-weight: 700;
+}
+
+/* ── Tree lines: JS-drawn absolute connector lines ──
+   Lines are drawn by drawTreeLines() as divs appended to .goaltree-task-list.
+   Each line spans a full sibling group (continuous, no gaps).
+   Old CSS ::before approach removed — it caused gaps when children expanded. */
+.goaltree-task-list {
+  position: relative; /* anchoring point for absolute-positioned tree lines */
+}
+
+/* Clickable name area (for parent tasks) */
+.goaltree-name-click-area {
+  flex: 1;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  min-width: 0;
+  overflow: hidden;
+}
+.goaltree-name-click-area .goaltree-task-name {
+  cursor: pointer;
+}
+
+/* Inline edit input */
+.goaltree-inline-edit {
+  font-size: 13px;
+  color: var(--text-normal);
+  flex: 1;
+  line-height: 1.5;
+  background: transparent;
+  border: none;
+  border-bottom: 1.5px solid var(--interactive-accent);
+  outline: none;
+  padding: 0;
+  margin: 0;
+  min-width: 40px;
+}
+
+/* Right actions bar — absolute positioned, always aligns to right edge */
+.goaltree-right-bar {
+  display: flex;
+  align-items: center;
+  gap: 2px;
+  flex-shrink: 0;
+  margin-left: auto;
+}
+
+.goaltree-right-col {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+/* Note column removed — space reclaimed by task name */
+.goaltree-right-col-ring {
+  width: 18px;
+}
+.goaltree-right-col-add {
+  width: 40px;
+  justify-content: flex-end;
+}
+.goaltree-right-col-status {
+  min-width: 44px;
+}
+.goaltree-right-col-more {
+  width: 18px;
+}
+
+/* Mini ring progress for parent tasks */
+.goaltree-mini-ring {
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Status badge — replaces check circle + count */
+.goaltree-status-badge {
+  font-size: 9px;
+  padding: 1px 5px;
+  border-radius: 3px;
+  cursor: pointer;
+  white-space: nowrap;
+  font-weight: 500;
+  transition: all 0.15s ease;
+  flex-shrink: 0;
+  user-select: none;
+}
+.goaltree-status-badge:hover {
+  transform: scale(1.08);
+  filter: brightness(1.1);
+}
+.goaltree-status-badge:active {
+  transform: scale(0.95);
+}
+
+/* Waiting — red */
+.goaltree-status-waiting {
+  background: rgba(224, 108, 117, 0.2);
+  color: #1a1a1a;
+  border: 1px solid rgba(224, 108, 117, 0.35);
+}
+
+/* In Progress — green */
+.goaltree-status-in_progress {
+  background: rgba(152, 195, 121, 0.25);
+  color: #1a1a1a;
+  border: 1px solid rgba(152, 195, 121, 0.4);
+}
+
+/* Completed — yellow */
+.goaltree-status-completed {
+  background: rgba(229, 192, 123, 0.3);
+  color: #1a1a1a;
+  border: 1px solid rgba(229, 192, 123, 0.45);
+}
+
+/* Cancelled — gray */
+.goaltree-status-cancelled {
+  background: rgba(139, 148, 158, 0.2);
+  color: #1a1a1a;
+  border: 1px solid rgba(139, 148, 158, 0.3);
+}
+
+/* Status pop animation */
+@keyframes goaltree-status-pop {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.18); }
+  100% { transform: scale(1); }
+}
+.goaltree-status-badge.goaltree-status-animating {
+  animation: goaltree-status-pop 0.25s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+/* Checkbox — ring progress circle */
+.goaltree-check {
+  width: 20px;
+  height: 20px;
+  flex-shrink: 0;
+  cursor: pointer;
+  position: relative;
+  transition: transform 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+.goaltree-check:hover {
+  transform: scale(1.15);
+}
+.goaltree-check svg {
+  display: block;
+}
+
+/* Check animation — circle fill rotate */
+@keyframes goaltree-check-fill {
+  0% {
+    clip-path: circle(0% at 50% 50%);
+    transform: scale(0.8) rotate(-90deg);
+    opacity: 0.5;
+  }
+  50% {
+    clip-path: circle(80% at 50% 50%);
+    transform: scale(1.1) rotate(10deg);
+    opacity: 1;
+  }
+  100% {
+    clip-path: circle(100% at 50% 50%);
+    transform: scale(1) rotate(0deg);
+    opacity: 1;
+  }
+}
+.goaltree-check.animating svg .goaltree-fill-circle {
+  animation: goaltree-check-fill 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
+}
+
+/* Checkmark draw animation */
+@keyframes goaltree-checkmark-draw {
+  0% { stroke-dashoffset: 20; }
+  100% { stroke-dashoffset: 0; }
+}
+.goaltree-check.animating svg .goaltree-checkmark-path {
+  stroke-dasharray: 20;
+  stroke-dashoffset: 20;
+  animation: goaltree-checkmark-draw 0.3s ease-out 0.2s forwards;
+}
+
+/* Note link indicator */
+.goaltree-note-link {
+  width: 18px;
+  height: 18px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  color: var(--interactive-accent);
+  cursor: pointer;
+  border-radius: 3px;
+  transition: background 0.15s ease;
+}
+.goaltree-note-link:hover {
+  background: var(--background-modifier-hover);
+}
+
+/* More button */
+.goaltree-more {
+  width: 22px;
+  height: 22px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 4px;
+  color: var(--text-faint);
+  cursor: pointer;
+  flex-shrink: 0;
+  opacity: 0;
+  transition: opacity 0.15s ease;
+}
+.goaltree-task-item:hover .goaltree-more {
+  opacity: 1;
+}
+
+/* Children container — smooth expand/collapse via max-height */
+/* .goaltree-children — kept for reference; flat DOM no longer uses this */
+.goaltree-children {
+  display: none;
+}
+
+/* Inline add — ALWAYS visible (not hover-only) */
+.goaltree-inline-add {
+  font-size: 11px;
+  color: var(--text-faint);
+  cursor: pointer;
+  white-space: nowrap;
+  opacity: 0.6;
+  transition: opacity 0.15s ease, color 0.15s ease;
+  flex-shrink: 0;
+}
+.goaltree-task-item:hover .goaltree-inline-add {
+  opacity: 1;
+}
+.goaltree-inline-add:hover {
+  color: var(--interactive-accent);
+}
+
+/* New task fade-in slide-down animation */
+@keyframes goaltree-new-task {
+  0% {
+    opacity: 0;
+    transform: translateY(-8px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+.goaltree-task-item.goaltree-new {
+  animation: goaltree-new-task 0.3s ease-out forwards;
+}
+
+/* Quick-add chips row */
+.goaltree-add-row {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  padding: 2px 12px 6px;
+  flex-wrap: wrap;
+}
+.goaltree-add-chip {
+  font-size: 11px;
+  color: var(--text-faint);
+  background: var(--background-modifier-hover);
+  border: 1px solid var(--background-modifier-border);
+  border-radius: 10px;
+  padding: 2px 10px;
+  cursor: pointer;
+  transition: all 0.15s ease;
+  white-space: nowrap;
+}
+.goaltree-add-chip:hover {
+  color: var(--text-normal);
+  border-color: var(--interactive-accent);
+  background: var(--background-modifier-active-hover);
+}
+
+/* Add task button */
+.goaltree-bottom-add-row {
+  display: flex;
+  flex-shrink: 0;
+  border-top: 1px solid var(--background-modifier-border);
+}
+.goaltree-add-btn {
+  flex: 1;
+  padding: 8px 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  color: var(--text-muted);
+  font-size: 12px;
+  cursor: pointer;
+  transition: color 0.15s ease, background 0.15s ease;
+}
+.goaltree-add-btn:hover {
+  color: var(--text-normal);
+  background: var(--background-modifier-hover);
+}
+
+/* Context menu */
+.goaltree-context-menu {
+  background: var(--background-secondary);
+  border: 1px solid var(--background-modifier-border);
+  border-radius: 6px;
+  padding: 4px 0;
+  min-width: 140px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+  z-index: var(--layer-popover);
+  -webkit-tap-highlight-color: transparent;
+}
+.goaltree-menu-item {
+  padding: 6px 16px;
+  font-size: 13px;
+  color: var(--text-normal);
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+  transition: background 0.1s ease;
+}
+.goaltree-menu-item:hover {
+  background: var(--background-modifier-hover);
+}
+.goaltree-menu-item.danger {
+  color: var(--text-error);
+}
+.goaltree-menu-item.danger:hover {
+  background: rgba(var(--text-error), 0.1);
+}
+
+/* Modal styles */
+.goaltree-modal h4 {
+  font-size: 15px;
+  font-weight: 600;
+  margin-bottom: 16px;
+}
+
+/* Drag-and-drop styles */
+.goaltree-task-item[draggable="true"] {
+  cursor: grab;
+}
+.goaltree-task-item.goaltree-dragging {
+  opacity: 0.35;
+}
+.goaltree-drag-ghost {
+  background: var(--background-primary);
+  box-shadow: 0 8px 24px rgba(0,0,0,0.2);
+  border-radius: 6px;
+  transition: transform 0.1s ease-out;
+}
+.goaltree-drag-ghost.goaltree-snap {
+  transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+.goaltree-task-item:not(.goaltree-dragging) {
+  cursor: default;
+}
+.goaltree-task-item:hover {
+  cursor: grab;
+}
+.goaltree-drop-line {
+  position: absolute;
+  left: 4px;
+  right: 4px;
+  height: 2px;
+  background: var(--interactive-accent);
+  border-radius: 1px;
+  pointer-events: none;
+  z-index: 10;
+}
+.goaltree-drop-line.before {
+  top: -1px;
+}
+.goaltree-drop-line.after {
+  bottom: -1px;
+}
+.goaltree-drop-child-target {
+  background: var(--background-modifier-hover) !important;
+  outline: 2px solid var(--interactive-accent);
+  outline-offset: -2px;
+  border-radius: 4px;
+  transition: outline-color 0.15s ease, background 0.15s ease;
+}
+.goaltree-drop-highlight {
+  display: none;
+}
+.goaltree-modal input {
+  width: 100%;
+  padding: 8px 12px;
+  background: var(--background-primary);
+  border: 1px solid var(--background-modifier-border);
+  border-radius: var(--input-radius);
+  color: var(--text-normal);
+  font-size: 14px;
+  outline: none;
+}
+.goaltree-modal input:focus {
+  border-color: var(--interactive-accent);
+  box-shadow: 0 0 0 2px var(--interactive-accent);
+}
+.goaltree-modal-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 8px;
+  margin-top: 20px;
+}
+
+.goaltree-btn-danger {
+  background: #e53935 !important;
+  color: #fff !important;
+}
+
+/* Mobile/touch: always visible buttons */
+@media (hover: none) and (pointer: coarse) {
+  .goaltree-more {
+    opacity: 0.7;
+  }
+  .goaltree-task-item {
+    min-height: 44px;
+    padding: 6px 12px 6px 16px;
+  }
+  .goaltree-task-header {
+    gap: 8px;
+    min-height: 44px;
+  }
+  .goaltree-toggle-wrap {
+    width: 28px;
+    height: 28px;
+  }
+  .goaltree-toggle svg {
+    width: 14px;
+    height: 14px;
+  }
+  .goaltree-task-name {
+    font-size: 13px;
+    white-space: normal;
+    word-break: break-all;
+    line-height: 1.4;
+  }
+  .goaltree-task-name.root-name {
+    font-size: 13px;
+  }
+  .goaltree-task-name.phase-name {
+    font-size: 13px;
+  }
+  .goaltree-check {
+    width: 24px;
+    height: 24px;
+  }
+  .goaltree-status-badge {
+    font-size: 10px;
+    padding: 2px 6px;
+  }
+  .goaltree-mini-ring svg {
+    width: 20px;
+    height: 20px;
+  }
+  .goaltree-count {
+    font-size: 13px;
+  }
+  .goaltree-more {
+    width: 32px;
+    height: 32px;
+  }
+  .goaltree-note-link {
+    width: 32px;
+    height: 32px;
+  }
+  .goaltree-add-subtask,
+  .goaltree-add-btn {
+    min-height: 48px;
+    font-size: 14px;
+  }
+  /* Context menu full-width on small screens */
+  .goaltree-context-menu {
+    min-width: 180px;
+    max-width: calc(100vw - 32px);
+    border-radius: 12px;
+    overflow: hidden;
+  }
+  .goaltree-menu-item {
+    padding: 14px 16px;
+    font-size: 15px;
+  }
+  /* Modal inputs larger for touch */
+  .goaltree-modal input {
+    font-size: 16px !important; /* prevents iOS zoom */
+    min-height: 44px;
+    padding: 8px 12px;
+  }
+  .goaltree-modal-actions button {
+    min-height: 44px;
+    font-size: 15px;
+  }
+  /* Inline edit larger on mobile */
+  .goaltree-inline-edit {
+    font-size: 15px !important;
+    min-height: 40px;
+  }
+  /* Header add button larger */
+  .goaltree-header-add-btn {
+    font-size: 13px;
+    padding: 4px 10px;
+    min-height: 32px;
+  }
+  /* Inline add always visible on mobile */
+  .goaltree-inline-add {
+    opacity: 0.8;
+    font-size: 13px;
+    padding: 2px 6px;
+    min-height: 28px;
+  }
+  .goaltree-due-date {
+    font-size: 11px;
+    padding: 2px 6px;
+  }
+  /* Right bar columns — slightly larger on mobile */
+  /* Note column removed — space reclaimed by task name */
+  .goaltree-right-col-ring { width: 22px; }
+  .goaltree-right-col-add { width: 48px; }
+  .goaltree-right-col-status { min-width: 52px; }
+  .goaltree-right-col-more { width: 24px; }
+  .goaltree-right-bar { gap: 6px; }
+}
